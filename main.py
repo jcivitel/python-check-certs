@@ -56,6 +56,7 @@ def check_all():
         )
 
 
+
 async def send2matrix(homeserver, access_token, room_id, updates):
     config = {
         "homeserver": homeserver,
