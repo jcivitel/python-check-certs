@@ -9,5 +9,11 @@ spec:
       - name: run-checks-job
         image: jcivitell/py_check_cert
         command: ["celery", "-A", "main", "call", "main.check_all"]
+        env:
+            - name: CELERY_HOST
+              value: "redis://cert-check-redis-svc:6379/0"
+        envFrom:
+          - configMapRef:
+              name: py-check-cert-config
       restartPolicy: Never
   backoffLimit: 4
