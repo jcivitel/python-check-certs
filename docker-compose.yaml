@@ -6,7 +6,6 @@ services:
       dockerfile: Dockerfile
       tags:
         - "py_check_cert"
-    env_file: ".env"
     command: celery -A main worker --beat --loglevel=info
     depends_on:
       - redis
