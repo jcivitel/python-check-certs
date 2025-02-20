@@ -7,10 +7,3 @@ services:
       tags:
         - "jcivitell/py_check_cert:${CIRCLE_TAG:-notag}"
     command: celery -A main worker --beat --loglevel=info
-    depends_on:
-      - redis
-  redis:
-    container_name: cert_check_redis
-    image: redis:latest
-    ports:
-      - 6379:6379
