@@ -7,8 +7,7 @@ spec:
     spec:
       containers:
       - name: run-checks-job
-        imagePullPolicy: Never
-        image: py_check_cert
+        image: jcivitell/py_check_cert
         command: ["celery", "-A", "main", "call", "main.check_all"]
       restartPolicy: Never
   backoffLimit: 4
