@@ -1,0 +1,62 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cert-check-worker
+  labels:
+    app: cert-check-worker
+spec:
+  replicas: 1
+  revisionHistoryLimit: 0
+  selector:
+    matchLabels:
+      app: cert-check-worker
+  template:
+    metadata:
+      labels:
+        app: cert-check-worker
+    spec:
+      containers:
+        - name: py-check-cert
+          image: jcivitelli/py_check_cert
+          command: [ "celery", "-A", "main", "worker", "--beat", "--loglevel=info" ]
+          env:
+              - name: CELERY_HOST
+                value: "redis://cert-check-redis-svc:6379/0"
+          envFrom:
+            - configMapRef:
+                name: py-check-cert-config
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cert-check-redis
+  labels:
+    app: cert-check-redis
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cert-check-redis
+  template:
+    metadata:
+      labels:
+        app: cert-check-redis
+    spec:
+      containers:
+        - name: redis
+          image: redis
+          ports:
+            - containerPort: 6379
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: cert-check-redis-svc
+spec:
+  selector:
+    app: cert-check-redis
+  ports:
+    - protocol: TCP
+      port: 6379
+      targetPort: 6379

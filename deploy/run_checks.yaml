@@ -1,0 +1,14 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: run-checks
+spec:
+  template:
+    spec:
+      containers:
+      - name: run-checks-job
+        imagePullPolicy: Never
+        image: py_check_cert
+        command: ["celery", "-A", "main", "call", "main.check_all"]
+      restartPolicy: Never
+  backoffLimit: 4
