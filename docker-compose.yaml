@@ -5,7 +5,7 @@ services:
       context: .
       dockerfile: Dockerfile
       tags:
-        - "py_check_cert"
+        - "jcivitell/py_check_cert:${CIRCLE_TAG:-notag}"
     command: celery -A main worker --beat --loglevel=info
     depends_on:
       - redis
