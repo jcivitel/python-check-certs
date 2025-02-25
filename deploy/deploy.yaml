@@ -6,7 +6,7 @@ metadata:
     app: cert-check-worker
 spec:
   replicas: 1
-  revisionHistoryLimit: 0
+  revisionHistoryLimit: 1
   selector:
     matchLabels:
       app: cert-check-worker
@@ -33,6 +33,7 @@ metadata:
     app: cert-check-redis
 spec:
   replicas: 1
+  revisionHistoryLimit: 1
   selector:
     matchLabels:
       app: cert-check-redis
