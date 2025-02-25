@@ -10,4 +10,4 @@ COPY requirements.txt /app/
 
 RUN pip install -r requirements.txt
 
-CMD ["python3"]
+CMD ["celery", "-A", "main", "worker", "--beat", "--loglevel=info"]

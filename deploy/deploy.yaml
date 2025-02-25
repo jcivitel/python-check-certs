@@ -18,7 +18,6 @@ spec:
       containers:
         - name: py-check-cert
           image: jcivitell/py_check_cert
-          command: [ "celery", "-A", "main", "worker", "--beat", "--loglevel=info" ]
           env:
               - name: CELERY_HOST
                 value: "redis://cert-check-redis-svc:6379/0"

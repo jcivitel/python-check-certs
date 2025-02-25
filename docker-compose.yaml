@@ -1,9 +1,8 @@
 services:
   py_check_cert:
-    container_name: py_check_cert
+    image: jcivitell/py_check_cert
     build:
       context: .
       dockerfile: Dockerfile
       tags:
         - "jcivitell/py_check_cert:${CIRCLE_TAG:-notag}"
-    command: celery -A main worker --beat --loglevel=info
