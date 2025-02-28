@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: py-check-cert
-          image: jcivitell/py_check_cert
+          image: jcivitell/py_check_cert:notag
           command: [ "celery", "-A", "main", "worker", "--beat", "--loglevel=info" ]
           env:
               - name: CELERY_HOST
