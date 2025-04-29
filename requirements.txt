@@ -16,7 +16,7 @@ click-repl==0.3.0
 colorama==0.4.6
 cryptography==44.0.2
 frozenlist==1.6.0
-h11==0.14.0
+h11==0.16.0
 h2==4.2.0
 hpack==4.1.0
 hyperframe==6.1.0
