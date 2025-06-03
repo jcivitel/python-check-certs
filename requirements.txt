@@ -23,7 +23,7 @@ hyperframe==6.1.0
 idna==3.10
 jsonschema==4.24.0
 jsonschema-specifications==2025.4.1
-kombu==5.5.3
+kombu==5.5.4
 matrix-nio==0.25.2
 multidict==6.4.4
 mypy-extensions==1.1.0
