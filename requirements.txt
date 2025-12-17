@@ -36,7 +36,7 @@ pycparser==2.23
 pycryptodome==3.23.0
 python-dateutil==2.9.0.post0
 python-decouple==3.8
-python-socks==2.7.3
+python-socks==2.8.0
 redis==7.1.0
 referencing==0.37.0
 rpds-py==0.29.0
