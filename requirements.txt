@@ -18,7 +18,7 @@ cryptography==49.0.0
 frozenlist==1.8.0
 h11==0.16.0
 h2==4.3.0
-hpack==4.1.0
+hpack==4.2.0
 hyperframe==6.1.0
 idna==3.18
 jsonschema==4.26.0
