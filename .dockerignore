@@ -1,0 +1,36 @@
+# Dockerignore - exclude unnecessary files from build context
+.git
+.gitignore
+.gitmodules
+Dockerfile
+docker-compose.yaml
+.env
+.env.example
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+*.egg-info
+dist
+build
+*.log
+logs
+.coverage
+.pytest_cache
+.tox
+.nox
+.vscode
+.idea
+*.swp
+*~
+.DS_Store
+docker-compose.override.yml
+.dockerignore
+# Optionally exclude test data if present
+test/
+tests/
+# Exclude any local secrets or configs that might be mounted later
+secrets/
+config/
+# Exclude documentation if not needed in image
+docs/
